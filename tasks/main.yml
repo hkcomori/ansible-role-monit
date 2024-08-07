@@ -1,11 +1,19 @@
 ---
 - include_tasks: debian/pkg.yml
   tags: monit_pkg
-  when: ansible_os_family == "Debian"
+  when: >-
+    ansible_os_family == "Debian"
+    and ((monit_version == "") or (monit_prebuilt_target == ""))
 
 - include_tasks: redhat/pkg.yml
   tags: monit_pkg
-  when: ansible_os_family == "RedHat"
+  when: >-
+    ansible_os_family == "RedHat"
+    and ((monit_version == "") or (monit_prebuilt_target == ""))
+
+- include_tasks: official/pkg.yml
+  tags: monit_pkg
+  when: (monit_version != "") or (monit_prebuilt_target != "")
 
 - include_tasks: config.yml
   tags: monit_config

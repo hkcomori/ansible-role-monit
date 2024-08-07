@@ -1,0 +1,14 @@
+---
+- name: pkg - Install official binary
+  unarchive:
+    remote_src: true
+    src: "https://mmonit.com/monit/dist/binary/{{ monit_version }}/monit-{{ monit_version }}-{{ monit_prebuilt_target }}.tar.gz"
+    dest: "{{ monit_binary_file }}"
+    include:
+      - "monit-{{ monit_version }}/bin/monit"
+    owner: "{{ monit_owner_user }}"
+    group: "{{ monit_owner_group }}"
+    mode: 0755
+    extra_opts:
+      - "--strip-components=2"
+  ignore_errors: "{{ ansible_check_mode }}"
