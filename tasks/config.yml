@@ -15,8 +15,8 @@
   template:
     src: monitrc.j2
     dest: "{{monitrc_conf}}"
-    owner: root
-    group: root
+    owner: "{{ monit_owner_user }}"
+    group: "{{ monit_owner_group }}"
     mode: 0700
   notify: restart monit
 
@@ -24,8 +24,8 @@
   template:
     src: webinterface.j2
     dest: "{{ monit_includes }}/webinterface"
-    owner: root
-    group: root
+    owner: "{{ monit_owner_user }}"
+    group: "{{ monit_owner_group }}"
     mode: 0644
   notify: restart monit
 
@@ -33,8 +33,8 @@
   template:
     src: mail.j2
     dest: "{{ monit_includes }}/mail"
-    owner: root
-    group: root
+    owner: "{{ monit_owner_user }}"
+    group: "{{ monit_owner_group }}"
     mode: 0644
   notify: restart monit
   when: monit_mail_enabled

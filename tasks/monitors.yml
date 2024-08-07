@@ -3,8 +3,8 @@
   template:
     src: monitor.j2
     dest: "{{ monit_includes }}/{{ item.name }}"
-    owner: root
-    group: root
+    owner: "{{ monit_owner_user }}"
+    group: "{{ monit_owner_group }}"
   with_items: "{{ monit_services }}"
   notify: restart monit
 
