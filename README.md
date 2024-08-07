@@ -20,6 +20,12 @@ Role Variables
 --------------
 
 * `monit_cycle`: Time between checks in seconds. Defaults to `120`.
+* `monitrc_conf`: Location of monitrc file. Default to OS specific:
+  * Debian: `/etc/monit/monitrc`
+  * RedHat: `/etc/monitrc`
+* `monit_includes`: Location of monit's include directory. Default to OS specific:
+  * Debian: `/etc/monit/conf.d`
+  * RedHat: `/etc/monit.d`
 * `monit_log_destination`: Where the log will be written. Can be a path to a file or "syslog", which will write to syslog daemon. Defaults to `/var/log/monit.log`.
 * `monit_state_file`: State file path. Defaults to `/var/lib/monit/state`.
 * `monit_id_file`: Id file path. Defaults to `/var/lib/monit/id`.
@@ -54,6 +60,13 @@ Role Variables
 * `monit_webinterface_rw_group`: Define group of users allowed to read and write on web interface. It is only applied when defined and is empty by default.
 * `monit_webinterface_r_group`: Define group of users allowed to read on web interface. It is only applied when defined and is empty by default.
 * `monit_webinterface_acl_rules`: List of ACL rules for the web interface, such as "localhost" or "hauk:password". It is only applied when defined and is empty by default. You should probably define at least one for the httpd service to start.
+* `monit_binary_folder`: Where to install when installing from official binaries. Not used when installing from a package. If `/home/user/.local/bin` is set, non-root users can also install. Defaults to `/usr/bin`.
+* `monit_version`: Version of the official binary to be installed. Set blank when installing from a package. Defaults to ""
+* `monit_prebuilt_target`: Build target for official binaries to be installed (eg. `linux-x64`). All supported values are [here](https://mmonit.com/monit/#download). Set blank when installing from a package. Defaults to "".
+* `monit_owner_user`: Owner user of monit binary and config files. Defaults to `root`.
+* `monit_owner_group`: Owner group of monit binary and config files. Defaults to `root`.
+* `monit_service`: The service name of monit when it is run as service. If set to blank, no service will be created. Default to `monit`.
+* `monit_fact_dir`: Directory to store data required to run this role. Defaults to `/etc/ansible/facts.d`.
 
 Custom facts
 ------------
