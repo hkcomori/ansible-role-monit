@@ -1,4 +1,4 @@
 ---
-monit_service: monit
-monitrc_conf: /etc/monit/monitrc
-monit_includes: /etc/monit/conf.d
+monit_service_default: monit
+monitrc_conf_default: /etc/monit/monitrc
+monit_includes_default: /etc/monit/conf.d

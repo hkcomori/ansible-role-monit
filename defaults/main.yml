@@ -1,4 +1,6 @@
 monit_cycle: 120
+monitrc_conf: "{{ monitrc_conf_default }}"
+monit_includes: "{{ monit_includes_default }}"
 monit_log_destination: /var/log/monit.log
 monit_lib_folder: /var/lib/monit
 monit_state_file: "{{ monit_lib_folder }}/state"
@@ -17,3 +19,5 @@ monit_webinterface_port: 2812
 
 monit_owner_user: root
 monit_owner_group: root
+
+monit_service: "{{ monit_service_default }}"
