@@ -3,3 +3,4 @@
   service:
     name: "{{ monit_service }}"
     state: restarted
+  when: monit_service != ""
