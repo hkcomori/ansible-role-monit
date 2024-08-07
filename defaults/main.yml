@@ -21,3 +21,5 @@ monit_owner_user: root
 monit_owner_group: root
 
 monit_service: "{{ monit_service_default }}"
+
+monit_fact_dir: "/etc/ansible/facts.d"
